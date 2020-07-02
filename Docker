@@ -1,0 +1,3 @@
+### how to search container's ip
+1. enter container
+2. cat /etc/hosts
