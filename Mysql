@@ -1,0 +1,4 @@
+-- 存储过程
+类似于创建一个function(value), 这样在进行相同类操作的时候直接调用定义的Procedure即可。
+
+Sample:
