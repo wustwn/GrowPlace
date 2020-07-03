@@ -6,6 +6,7 @@
 
 3. to uppercases
    -- ${value^^}
+   -- ${vaule^^a} bac -> bAc
     
    to lowercases
    -- ${value,,}
