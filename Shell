@@ -3,3 +3,13 @@
 
 2. sed -n '$p' a.txt
 -- 输入 a.txt 文件中最后一行。 此命令可以结合判断文件最后是否有空行，进而采取适当的语句插入命令。
+
+3. to uppercases
+   -- ${value^^}
+    
+   to lowercases
+   -- ${value,,}
+ 
+   keep first work upper
+   -- ${value,,}
+   -- ${value^}
