@@ -14,3 +14,10 @@
    keep first work upper
    -- ${value,,}
    -- ${value^}
+
+4. 怎么获得命令执行结果：
+  -- cmd 2>&1
+  example: 判断apply某patch是否成功，如果命令执行没有输出则正常，有包含error字符串的输出结果则表示失败.
+           if (git apply test.patch 2>&1 =~ "error");then
+               echo "apply patch error!"
+           fi
