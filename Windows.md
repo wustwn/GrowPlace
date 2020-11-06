@@ -1,5 +1,4 @@
 ### Some tips in Windows system
-### Some tips in Windows system
 
 #### 1. How to hide a driver partition in win10? ( The best way(Highly recommand )
 
