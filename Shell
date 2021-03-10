@@ -1,3 +1,12 @@
+Windows:
+1. findstr /M  "str_to_find"  "C:\A\B\src\*"
+-- 在C:\A\B\src\所有文件下搜索包含"str_to_find"的文件
+
+2. findstr "str_to_find"  "file.txt"
+-- 在file.txt文件内搜索"str_to_find"
+
+
+Linux:
 1. sed -i '/abc/d' a.txt
 -- 删除 a.txt 文件中包含 abc 字母的行
 
