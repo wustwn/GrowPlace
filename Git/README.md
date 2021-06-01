@@ -1,13 +1,28 @@
-GIT
+## GIT
 
-reset & checkout one file from HEAD commit
-=> 1. git reset HEAD^ -- file_to_checkout_A
+1. ### reset & checkout one file from HEAD commit
+```
+   1. git reset HEAD^ -- file_to_checkout_A
    2. git commit --amend --no-edit
+```   
    注意：执行完1命令时对文件A的修改撤回操作已经在暂存区，这时如果需要继续修改，可以继续进行修改再进行add,commit --amend，或者先执行2，再进行修改add, commit --amend.
    now the HEAD commit does not include file_A's changes
 
-Add multiple remote:
-=> git remote add DIY_NAME GIT_REPO_PATH
+2. ### Add multiple remote:
+```
+git remote add DIY_NAME GIT_REPO_PATH
+```
 
-Show remote details information:
-=> git remote show NAME
+3. ### Show remote details information:
+```
+git remote show NAME
+```
+
+4. ### Git reset single file from commit
+如果想将某文件reset到与当前HEAD commit之前的状态，可以先使用diff查看具体的修改内容，然后再使用reset。需要注意的是，commit-id 是超前的一条commit。
+```git
+git diff commit-id /path/to/file
+git reset commit-id /path/to/file
+```
+
+   
