@@ -1,9 +1,4 @@
-### how to search container's ip
-```shell
-1. enter container
-2. cat /etc/hosts
-```
-
+# Commands
 `$ docker ps` // 查看所有正在运行容器
 
 `$ docker stop containerId` // containerId 是容器的ID
@@ -16,6 +11,27 @@
 
 `$ docker  rm $(docker ps -a -q)` //   remove删除所有容器
 
+`$ sudo docker create --name container_name  image_name` // 由image新建一个container
+
+`$ sudo docker run -it image_name /bin/bash` // 由image直接新建并运行一个container
+
+`$ sudo docker start\stop container_name` // 启动\停止container
+
+```shell
+1. $ sudo docker attach  container_name // 退出即停止，不会后台保持
+2. $ sudo docker exec -it container_name bin/bash // 退出不会停止，保持up状态
+```
+
+`$ exit`  // 退出container，在container内执行：
+
+`docker save -o a.img.jar image_name` // docker由现有镜像输出为jar包
+
+# Others
+## How to search container's ip
+```shell
+1. enter container
+2. cat /etc/hosts
+```
 
 ## How to set up proxy for docker
 1. Create a systemd drop-in directory for the docker service:
