@@ -30,3 +30,5 @@ Linux:
            if (git apply test.patch 2>&1 =~ "error");then
                echo "apply patch error!"
            fi
+## Find
+1. find . -type d -name "ddd" //查找该目录下名称为ddd的目录
