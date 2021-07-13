@@ -32,6 +32,7 @@ Linux:
            fi
 ## Find
 1. find . -type d -name "ddd" //查找该目录下名称为ddd的目录
+2. find . -type f -name '*.*'|xargs grep 'abc'    //xargs配合grep查找当前目录下包含abc的所有文件
 
 ## APT
 1. dpkg -L openjdk-8  //查找通过apt-install安装的软件的安装目录
