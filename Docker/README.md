@@ -15,6 +15,8 @@
 
 `$ sudo docker run -it image_name /bin/bash` // 由image直接新建并运行一个container
 
+`$ sudo docker run -it image_name --name container_name /bin/bash` // 由image直接新建并运行一个名为container_name的container
+
 `$ sudo docker start\stop container_name` // 启动\停止container
 
 ```shell
@@ -60,3 +62,18 @@ $ sudo systemctl restart docker
 $ systemctl show --property=Environment docker
 Environment=HTTPS_PROXY=https://proxy.example.com:443/
 ```
+
+## 设置docker权限免sudo执行
+1. 创建docker用户组
+```shell
+$ sudo groupadd docker
+```
+2. 添加当前用户至docker用户组
+```shell
+$ sudo usermod -aG docker $USER
+```
+3. 更新用户组权限
+``shell
+$ newgrp docker
+```
+4. Log out OS & Log in OS again
