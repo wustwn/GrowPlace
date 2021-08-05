@@ -24,5 +24,7 @@ git remote show NAME
 git diff commit-id /path/to/file
 git reset commit-id /path/to/file
 ```
-
-   
+5. ### Git clone 单个分支 [save repo size]
+```git
+git clone -b  branch_name --single-branch repo_path
+```   
