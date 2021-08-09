@@ -68,3 +68,16 @@
 ### ENTRYPOINT
  - `ENTRYPOINT ["/a.sh"]`
     - 可以使用此命令在启动container时执行一定的操作，比如上示命令即表示在run image时自动执行a.sh脚本，是经常会使用到的命令。
+
+----
+
+### .dockerignore
+ - 在Build docker image时,docker会先扫描当前目录下的文件, 若文件比较多,比较大就会非常耗时且无意义, 此时有两种解决方案: 
+    - 删除unecessary files
+    - 将Uncessary files/folders添加到.dockerignore内
+    ```shell
+    *.md
+    !README.md
+    ```
+    > 除README.md外，所有其他md文件都被docker忽略
+
