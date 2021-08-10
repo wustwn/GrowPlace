@@ -25,4 +25,11 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1
 ```
 
 ## 4. 别忘了使用`.dockerignore`
-在`build docker image`过程中,同目录下的文件大小会影响到`build`的速度,而且会影响`size`, `.dockerignore` 的作用是在构建镜像时将
+在Build docker image时,docker会先扫描当前目录下的文件, 若文件比较多,比较大就会非常耗时且无意义, 此时有两种解决方案: 
+  - 删除unecessary files
+  - 将Uncessary files/folders添加到`.dockerignore`内
+    ```shell
+    *.md
+    !README.md
+    ```
+    > 除README.md外，所有其他md文件都被docker忽略
