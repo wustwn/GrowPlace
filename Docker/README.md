@@ -24,9 +24,9 @@
 2. $ sudo docker exec -it container_name bin/bash // 退出不会停止，保持up状态
 ```
 
-`$ exit`  // 退出container，在container内执行：
+`$ exit`  // 退出container，在container内执行
 
-`docker save -o a.img.jar image_name` // docker由现有镜像输出为jar包
+`$ docker save -o a.img.jar image_name` // docker由现有镜像输出为jar包
 
 # Others
 ## How to search container's ip
@@ -44,7 +44,9 @@ $ sudo mkdir -p /etc/systemd/system/docker.service.d
 2. Create a file called /etc/systemd/system/docker.service.d/http-proxy.conf that adds the HTTP_PROXY environment variable:
 ```shell
 [Service]    
-Environment="HTTP_PROXY=http://proxy.example.com:443/ ""HTTPS_PROXY=https://proxy.example.com:443/" "NO_PROXY=localhost,127.0.0.1,docker-registry.somecorporation.com"
+Environment="HTTP_PROXY=http://proxy.example.com:443/ " \ 
+            "HTTPS_PROXY=https://proxy.example.com:443/" \
+            "NO_PROXY=localhost,127.0.0.1,docker-registry.somecorporation.com"
 ```
 
 3. Flush changes:
