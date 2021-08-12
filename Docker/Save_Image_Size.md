@@ -13,6 +13,7 @@ RUN apt-get update \
 RUN apt-get update
 RUN apt-get install vim
 ```
+**注意： 要删除文件的话需要在同一个*RUN* layer内进行删除，如果在不同layer进行删除，`container`内会删除，但是image size不会更改**
 
 ## 3. 及时清理不需要的文件
 比如需要配置 `cmake`, 首先需要下载 `cmake-3.21.1-linux-x86_64.tar.gz`, 然后解压配置. 在配置完成后,下载的源文件 `cmake-3.21.1-linux-x86_64.tar.gz` 就不再需要了就可以执行删除操作.
