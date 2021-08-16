@@ -28,3 +28,12 @@ git reset commit-id /path/to/file
 ```git
 git clone -b  branch_name --single-branch repo_path
 ```   
+6. ### Personal access token (PAT)
+自2021.8.13后,github不再使用`username` & `pwd`,使用`PAT`进行替代,即需要对应生成`PAT` 来替代`password`, 原来使用可以使用
+```git 
+git clone https://username:pwd@repopath 
+```
+现在需要替换为:
+```git
+git clone https://username:token@repopath
+```
