@@ -34,3 +34,19 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1
     !README.md
     ```
     > 除README.md外，所有其他md文件都被docker忽略
+
+## 5. 使用`multi stage` 将`Image Build` 和 `Image Release` 分开
+例如一种情况需要在`docker iamge A` 内 build , 需要在该 `docker image A` 内配置好依赖,比如 `base image` 需要使用`gcc`,需要配置`toolchain` 等, 但是在执行的时候并不需要这些依赖, `base image` 并不需要size比较大的`gcc`, 此时就可以使用 `multi stage`:
+```Dockerfile
+FROM gcc:latest as BASE
+RUN ...
+RUN ...
+
+FROM ubuntu:20.04
+COPY --from=BASE /root/FILE_A /root/FILE_A
+COPY --from=BASE /root/FILE_B /root/FILE_B
+```
+`BASE` 则为 `stage 1 docker image`, 我们最终需要的是包含目标文件`FILE_A, FILE_B` 的`stage 2 docker image` 镜像
+在 `docker build -t . target_image:1.0` 构建完成后, `docker images` 会出现*悬空*镜像,即`name none` & `tag none` 且没有关联 `container` 生成, 我们可以通过`docker image prune -f` 进行删除
+
+ 
