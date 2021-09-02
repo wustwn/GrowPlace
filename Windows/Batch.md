@@ -45,3 +45,24 @@ Explain:
   IF "%imageStr:gcc=%"=="%imageStr%" ()
   ```
   
+----
+  
+- IF
+    - file OR filedirectory exsit
+    ```bat
+    IF not EXSIT file (
+        echo No
+    ) else (
+        echo Yes 
+    )
+    ```
+    
+- DEL
+    ```bat
+    echo on
+    DEL "file_path" /s /f /q
+    @REM /S      Removes all directories and files in the specified directory in addition to the directory itself.  
+    @REM         Used to remove a directory tree.
+    @REM /F      Force deletes of read-only files.
+    @REM /Q      Dont ask if delete or not
+    ```
