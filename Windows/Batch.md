@@ -66,3 +66,12 @@ Explain:
     @REM /F      Force deletes of read-only files.
     @REM /Q      Dont ask if delete or not
     ```
+- Xcopy
+   ```bat
+   @REM copy source code and head file to mount direcotry .host_mnt
+   xcopy /e/y .\include .\.host_mnt\include
+   xcopy /e/y .\src .\.host_mnt\src
+   @REM /e Copy all subdirectories including empty
+   @REM /y 如果“Source”是一个目录或包含通配符，而“Destination”不存在，“xcopy”会假定“destination”指定目录名并创建一个新目录。
+   @REN    然后，“xcopy”会将所有指定文件复制到新目录中。默认情况下，“xcopy”将提示您指定“Destination”是文件还是目录。
+   ```
