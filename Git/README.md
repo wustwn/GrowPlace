@@ -37,3 +37,15 @@ git clone https://username:pwd@repopath
 ```git
 git clone https://username:token@repopath
 ```
+
+7. ### Pull Merge Request from GitLab
+```git
+git pull origin refs/merge-requests/1/head:pr1
+```
+将origin #1 MR pull 并合并到本地 pr1 branch 中
+
+8. ### Fetch PR from Github
+```git
+git fetch orgin pull/1/head:pr1
+```
+将origin #1 PR 拉取至本地 pr1 branch 中
