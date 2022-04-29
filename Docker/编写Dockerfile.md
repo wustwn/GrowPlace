@@ -71,3 +71,33 @@
 
 ----
 
+## 在Dockerfile 中编写安装 node, npm
+最推荐的方式是通过安装`nvm` 进行安装，这样可以避免`dockerfile` 内的权限问题。
+```dockerfile
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
+
+ENV NVM_DIR=/root/.nvm
+
+ENV NODE_VERSION=14.19.1
+
+RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
+
+RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
+
+RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
+
+ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
+
+
+RUN node --version && npm --version
+
+# avoid the sh.1 permission denied and other npm configruation issues
+RUN npm config set user 0 && \
+
+    npm config set unsafe-perm true && \
+
+    npm config set strict-ssl false && \
+
+    npm install --global vsce
+```
+
